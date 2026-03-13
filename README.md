@@ -58,7 +58,6 @@ The AI is:
 | Build | Gradle KTS |
 
 ---
-
 EchoSelf/
 │
 ├── 📄 build.gradle.kts                        ← Project-level Gradle
@@ -123,40 +122,7 @@ EchoSelf/
                         ├── 📄 JournalScreen.kt       ← Past sessions list
                         └── 📄 ProfileScreen.kt       ← Stats, streak, settings
 
-WelcomeScreen
-      │
-      ▼  (tap "Begin Your Journey")
-MoodCheckScreen
-      │
-      ▼  (select mood + tap "Continue")
-ChatScreen  ◄──────────────────────────────┐
-      │                                     │
-      ├─── Bottom Nav ── JournalScreen ─────┤
-      │                                     │
-      └─── Bottom Nav ── ProfileScreen ─────┘
 
-
-
-
-User types message
-        │
-        ▼
-  ChatScreen.kt
-  inputText (State)
-        │
-        ▼ viewModel.sendMessage(text)
-  ChatViewModel.kt
-  _uiState (StateFlow)
-        │
-        ▼ repository.sendMessage(text)
-  ChatRepository.kt
-  chatSession.sendMessage()
-        │
-        ▼  Gemini 2.5 Flash API
-  [System Prompt + Chat History + New Message]
-        │
-        ▼  response.text
-  ChatViewModel.kt
   appends AI Message to _uiState.messages
         │
         ▼  collectAsState()
