@@ -58,6 +58,10 @@ The AI is:
 | Build | Gradle KTS |
 
 ---
+
+## 📁 Project Structure
+
+```text
 EchoSelf/
 │
 ├── 📄 build.gradle.kts                        ← Project-level Gradle
@@ -121,10 +125,69 @@ EchoSelf/
                         ├── 📄 ChatScreen.kt          ← Main conversation screen
                         ├── 📄 JournalScreen.kt       ← Past sessions list
                         └── 📄 ProfileScreen.kt       ← Stats, streak, settings
+```
 
+### AI Response Flow
 
+```text
   appends AI Message to _uiState.messages
         │
         ▼  collectAsState()
   ChatScreen.kt
   LazyColumn re-renders with new bubble
+```
+
+---
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these steps:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yatharthdahiyaa/EchoSelf.git
+cd EchoSelf
+```
+
+### 2. Configure Gemini API Key
+Create a `local.properties` file in the root directory (or open the existing one) and add your API key:
+```properties
+GEMINI_API_KEY=your_api_key_here
+```
+> [!TIP]
+> You can get your key from [Google AI Studio](https://aistudio.google.com/).
+
+### 3. Build & Run
+1. Open the project in **Android Studio (Ladybug or newer)**.
+2. Let Gradle sync.
+3. Select an emulator or physical device.
+4. Click **Run**.
+
+---
+
+## 🛠 Tech Stack Details
+
+- **UI Framework:** Jetpack Compose with Material 3.
+- **AI Integration:** Google Generative AI SDK (Gemini 2.5 Flash).
+- **Persistent Storage:** Jetpack DataStore for profile and streak data.
+- **Architecture:** MVVM with `StateFlow` and `ViewModel`.
+- **Animations:** Compose Animations for the dynamic "Glassmorphism" background.
+
+---
+
+## 🗺 Roadmap
+
+- [ ] **Voice Support** — Talk to your future self hands-free.
+- [ ] **Cloud Sync** — Access your journal across devices.
+- [ ] **KMP Migration** — Bringing EchoSelf to iOS and Web.
+- [ ] **Advanced Personalization** — Fine-tune your future self based on your personal goals.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">Made with 💜 for the Generative AI Mental Wellness Hackathon</p>
